@@ -4,6 +4,7 @@ const morgan = require("morgan");
 const bodyParser = require("body-parser");
 
 const dishRouter = require("./routes/dishRouter");
+const promoRouter = require("./routes/promoRouter");
 
 const hostname = "localhost";
 const port = 3000;
@@ -14,6 +15,8 @@ app.use(bodyParser.json()); //whenever you need to use middleware you say app.us
 
 app.use("/dishes", dishRouter); //mount the router,any request coming to the dishes end point will handle by the dishRrrouter
 app.use("/dishes/:dishId", dishRouter);
+app.use("/promotions", promoRouter);
+app.use("/promotions/:promoId", promoRouter);
 
 app.use(express.static(__dirname + "/public")); //express you will look up root of this project
 
